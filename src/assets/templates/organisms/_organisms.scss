@@ -1,0 +1,233 @@
+.header {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: block;
+  background-color: #305088;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+
+      li {
+        padding: 0;
+        margin: 0 0 0 20px;
+        width: auto;
+        height: 100%;
+        transition: all .3s ease-in-out;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+          border-bottom: 3px solid #fff;
+          transition: all .3s ease-in-out;
+        }
+
+        &:first-child {
+          margin: 0 0 0 0;  
+        }
+
+        a {
+          display: inline-block;
+          outline: none;
+          color: #0B98D8;
+          font-size: 16px;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: all .3s ease-in-out;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          text-transform: uppercase;
+
+          &:hover {
+            color: #fff;
+            text-decoration: none;
+            transition: all .3s ease-in-out;
+          }
+        }
+      }
+    }
+
+    #nav:checked {
+      +.nav-open {
+        transform: rotate(45deg);
+       
+        span {
+          background: #fff;
+          transition: transform 0.2s ease;
+          cursor: pointer;
+
+          &:nth-child(1) {
+            transform: translateY(6px) rotate(180deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: translateY(-10px) rotate(90deg);
+          }
+        }
+      }
+
+      ~.nav-container {
+        z-index: 500;
+        opacity: 1;
+
+        ul li a {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+    &__logo {
+      width: 100%;
+      max-width: 90px;
+      min-height: 80px;
+      height: auto;
+      position: relative;
+      display: block;
+      z-index: 600;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-content: center;
+      height: 100%;
+      min-height: 80px;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media screen and (max-width: 992px) {
+.header {
+  &__nav {
+    padding: 0 0 0 0;
+
+    &__container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background: #305088;
+      opacity: 0;
+      transition: all 0.2s ease;
+
+      ul {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 30px;
+  
+        li {
+          display: block;
+          float: none;
+          width: 100%;
+          text-align: right;
+          margin-bottom: 10px;
+  
+          &:nth-child(1) a {
+            transition-delay: 0.2s;
+          }
+  
+          &:nth-child(2) a {
+            transition-delay: 0.3s;
+          }
+  
+          &:nth-child(3) a {
+            transition-delay: 0.4s;
+          }
+  
+          &:nth-child(4) a {
+            transition-delay: 0.5s;
+          }
+  
+          &:not(:first-child) {
+            margin-left: 0;
+          }
+  
+          a {
+            padding: 10px 25px;
+            opacity: 0;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            transform: translateY(-20px);
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+  .nav-open {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+    margin: 0 0 0 0;
+
+
+    span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      margin-left: 14px;
+
+      &:nth-child(1) {
+        margin-top: 16px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 4px;
+        opacity: 1;
+      }
+
+      &:nth-child(3) {
+        margin-top: 4px;
+      }
+    }
+  }
+}
